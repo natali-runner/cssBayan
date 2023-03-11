@@ -9,70 +9,115 @@ body {
     height: fit-content;
     justify-content: center;
     align-items: center;
+    font-family: 'Pangolin', cursive;
 }
 
 ul {
 list-style: none;
-color:grey;
+cursor: pointer;
+padding: 2rem 5rem 5rem 5rem;
 background-color:linen;
-display: flex;
-flex-direction: column;
+color:grey;
 }
 
-h2{
-border-bottom: 0.1rem solid rgba(80, 80, 80, 0.3);
-padding: 1rem 0  0 1rem;
+ul:hover{
+color: black;
+}
+
+h1 {
+color: black;
+border-bottom: 0.1rem solid rgba(80, 80, 80, 0.1);
+padding: 1rem 0  0.5rem 0;
 }
 
 li {
 cursor: pointer;
 font-weight: 700;
 font-size: 1.3rem;
+border-bottom: 0.1rem solid rgba(80, 80, 80, 0.1);
+padding: 0.7rem 0.7rem 0.7rem 0;
 }
 
 img {
 height: 50%;
 width: 50%;
+padding: 0.5rem;
 }
 
-.accordion li label{
+.accordion li label {
 cursor: pointer;
 display: flex;
 align-items: center;
 justify-content: space-between;
-padding: 1rem;
 }
 
-.accordion li label span{
+input {
     display: none;
 }
 
-.accordion:hover li label span{
-    transform: rotate(45deg);
-    font-weight: 900;
-    font-size: 1.5rem;
+.accordion li label span {
+    display: none;
+}
+
+.accordion:hover li label span {
+    color: black;
+    font-size: 1.2rem;
     display: block;
 }
 
 li:hover .content {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.7s ease-out;
     max-height: fit-content;
     display: flex;
     justify-content: center;
 }
 
-
-.accordion label + input[type='radio']{
-    display: none;
+li:hover label span {
+    transition: all 0.7s ease 0s;
+    transform: rotate(45deg);
 }
 
 .accordion .content{
 max-height: 0;
-overflow: hidden;
-transform: max-height 0.5s;
+opacity: 0;
+visibility: hidden;
 }
 
-.accordion label + input[type='radio']:checked + .content{
+:checked + label + .content{
+    visibility: visible;
+    opacity: 1;
     max-height: fit-content;
     display: flex;
     justify-content: center;
 }
+
+:checked + label{
+color: black;
+}
+
+:checked + label span {
+    transform: rotate(45deg);
+}
+
+li:active{
+ opacity: 0.5;
+ color:gray;
+}
+
+/* @media (max-width: 768px) {
+
+h1, li, img {
+padding: 0;
+}
+
+h1 {
+font-size: 2rem;
+}
+
+ul {
+font-size: 1.2rem;
+padding: 1rem;
+}
+} */
