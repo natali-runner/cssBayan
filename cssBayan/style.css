@@ -20,12 +20,9 @@ background-color:linen;
 color:grey;
 }
 
-ul:hover{
-color: black;
-}
-
 h1 {
 color: black;
+font-size: 2rem;
 border-bottom: 0.1rem solid rgba(80, 80, 80, 0.1);
 padding: 1rem 0  0.5rem 0;
 }
@@ -36,6 +33,11 @@ font-weight: 700;
 font-size: 1.3rem;
 border-bottom: 0.1rem solid rgba(80, 80, 80, 0.1);
 padding: 0.7rem 0.7rem 0.7rem 0;
+}
+
+li:active{
+opacity: 0.5;
+color:gray;
 }
 
 img {
@@ -52,31 +54,11 @@ justify-content: space-between;
 }
 
 input {
-    display: none;
+display: none;
 }
 
 .accordion li label span {
-    display: none;
-}
-
-.accordion:hover li label span {
-    color: black;
-    font-size: 1.2rem;
-    display: block;
-}
-
-li:hover .content {
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.7s ease-out;
-    max-height: fit-content;
-    display: flex;
-    justify-content: center;
-}
-
-li:hover label span {
-    transition: all 0.7s ease 0s;
-    transform: rotate(45deg);
+display: none;
 }
 
 .accordion .content{
@@ -86,11 +68,12 @@ visibility: hidden;
 }
 
 :checked + label + .content{
-    visibility: visible;
-    opacity: 1;
-    max-height: fit-content;
-    display: flex;
-    justify-content: center;
+visibility: visible;
+opacity: 1;
+max-height: fit-content;
+display: flex;
+justify-content: center;
+transition: all 0.8s ease 0s;
 }
 
 :checked + label{
@@ -98,26 +81,71 @@ color: black;
 }
 
 :checked + label span {
+transform: rotate(45deg);
+transition: all 0.7s ease 0s;
+}
+
+@media (hover: hover) {
+
+    /* when hover is supported */
+
+    .accordion:hover li label span {
+    color: black;
+    font-size: 1.2rem;
+    display: block;
+    }
+    li:hover .content {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.7s ease-out;
+    max-height: fit-content;
+    display: flex;
+    justify-content: center;
+    }
+    ul:hover{
+    color: black;
+    }
+
+    li:hover label span {
+    transition: all 0.7s ease 0s;
     transform: rotate(45deg);
+    }
 }
 
-li:active{
- opacity: 0.5;
- color:gray;
+@media (max-width: 830px) {
+
+    h1 {
+    font-size: 18px;
+    }
+
+    li {
+    font-size: 14px;
+    padding: 15px 15px 15px 0;
+    }
+
+    .accordion li label span {
+    display: block;
+    font-size: 14px;
+    }
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 400px) {
 
-h1, li, img {
-padding: 0;
-}
+    h1 {
+    font-size: 16px;
+    padding: 10px 0 5px 0;;
+    }
+    ul {
+    padding: 10px;
+    width: 80%;
+    }
 
-h1 {
-font-size: 2rem;
+    li {
+    font-size: 12px;
+    padding: 10px 10px 10px 0;
+    }
+    .accordion li label span {
+    display: block;
+    font-size: 10px;
+    }
 }
-
-ul {
-font-size: 1.2rem;
-padding: 1rem;
-}
-} */
