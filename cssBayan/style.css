@@ -1,0 +1,171 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+body {
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pangolin', cursive;
+}
+
+ul {
+    list-style: none;
+    padding: 2rem 5rem 5rem 5rem;
+    background-color:linen;
+    color:grey;
+}
+
+h1 {
+    color: black;
+    font-size: 2rem;
+    border-bottom: 0.1rem solid rgba(80, 80, 80, 0.1);
+    padding: 1rem 0  0.5rem 0;
+}
+
+li {
+    font-weight: 700;
+    font-size: 1.3rem;
+    border-bottom: 0.1rem solid rgba(80, 80, 80, 0.1);
+    padding: 0.7rem 0.7rem 0.7rem 0;
+}
+
+li:active {
+    opacity: 0.5;
+    color:gray;
+}
+
+img {
+    height: 50%;
+    width: 50%;
+    padding: 0.5rem;
+    transform: scale(0.7, 0.7);
+    transition: all 0.8s ease 0s;
+}
+
+.accordion li label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+input {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+.accordion li label span {
+    display: none;
+}
+
+.accordion .content{
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+:checked + label + .content{
+    visibility: visible;
+    opacity: 1;
+    max-height: fit-content;
+    display: flex;
+    justify-content: center;
+    transition: all 0.8s ease 0s;
+}
+
+:checked + label{
+    color: black;
+}
+
+:checked + label + label img {
+    transform: scale(1, 1)
+}
+
+:checked + label span {
+    transform: rotate(45deg);
+    transition: all 0.7s ease 0s;
+}
+
+@media (hover: hover) {
+
+    /* when hover is supported */
+
+    .accordion:hover li label span {
+    display: block;
+    color: black;
+    font-size: 1.2rem;
+    }
+
+    ul:hover{
+    color: black;
+    }
+
+    li:hover .content {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.7s ease-out;
+    max-height: fit-content;
+    display: flex;
+    justify-content: center;
+    }
+
+    li:hover label img {
+    transform: scale(1, 1)
+    }
+
+    li:hover label span {
+    transition: all 0.7s ease 0s;
+    transform: rotate(45deg);
+    }
+}
+
+@media (max-width: 830px) {
+
+    h1 {
+    font-size: 18px;
+    }
+
+    li {
+    font-size: 14px;
+    padding: 15px 15px 15px 0;
+    }
+
+    .accordion li label span {
+    display: block;
+    font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    h1 {
+    font-size: 16px;
+    padding: 10px 0 5px 0;;
+    }
+    ul {
+    padding: 10px;
+    width: 80%;
+    }
+
+    li {
+    font-size: 12px;
+    padding: 10px 10px 10px 0;
+    }
+    .accordion li label span {
+    display: block;
+    font-size: 10px;
+    }
+}
